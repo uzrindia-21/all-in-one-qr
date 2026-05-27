@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>UZR INDIA | Custom Logo Hub | Gold & Silver</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            transition: background 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1), color 0.3s;
+        }
+
+        /* ----- GOLD THEME (DEFAULT): background pure gold, text black-ish on dark card ----- */
+        body.gold-theme {
+            background: radial-gradient(circle at 30% 20%, #e6b422, #c9961e);
+            background-attachment: fixed;
+        }
+
+        body.gold-theme .glass-card {
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(16px);
+            border: 2px solid rgba(255, 215, 0, 0.7);
+            box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 210, 90, 0.5);
+        }
+
+        body.gold-theme .brand-text h1,
+        body.gold-theme .gold-text {
+            background: linear-gradient(135deg, #ffeaac, #f5bc3c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        body.gold-theme .hub-item {
+            background: rgba(10, 8, 5, 0.75);
+            border: 1px solid rgba(255, 210, 80, 0.6);
+            color: #f9efcf;
+        }
+
+        body.gold-theme .hub-item i {
+            color: #f7cd5c;
+        }
+
+        body.gold-theme .hub-item:hover {
+            background: rgba(255, 210, 90, 0.2);
+            border-color: #ffd966;
+        }
+
+        body.gold-theme .greeting h2 {
+            color: #ffefbf;
+        }
+
+        body.gold-theme .enquiry-card {
+            background: rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 200, 70, 0.6);
+        }
+
+        body.gold-theme .enquiry-title {
+            color: #ffdfa5;
+        }
+
+        body.gold-theme .input-field {
+            background: rgba(25, 22, 18, 0.9);
+            border: 1px solid #bd9a3e;
+            color: #fcf3df;
+        }
+
+        body.gold-theme .input-field:focus {
+            border-color: #ffcf6e;
+            box-shadow: 0 0 0 3px rgba(255, 200, 70, 0.3);
+        }
+
+        body.gold-theme .enquiry-btn {
+            background: linear-gradient(105deg, #e6b422, #d9a416);
+            color: #1f1a0a;
+            font-weight: 800;
+        }
+
+        body.gold-theme .footer-note {
+            color: #edd6a3;
+        }
+
+        body.gold-theme .theme-toggle {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #e6bc4a;
+        }
+
+        body.gold-theme .theme-toggle i {
+            color: #ffdc8a;
+        }
+
+        body.gold-theme .toast-msg {
+            background: #1e1b12e6;
+            color: #ffefcf;
+            border-left: 5px solid #f5bc3c;
+        }
+
+        body.gold-theme .company-logo-img {
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+        }
+
+        /* ----- SILVER THEME: background silver/chrome, text golden ----- */
+        body.silver-theme {
+            background: radial-gradient(circle at 70% 30%, #d9e2ec, #bdc4d0);
+            background-attachment: fixed;
+        }
+
+        body.silver-theme .glass-card {
+            background: rgba(20, 20, 25, 0.85);
+            backdrop-filter: blur(16px);
+            border: 2px solid rgba(210, 190, 100, 0.85);
+            box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(200, 180, 90, 0.5);
+        }
+
+        body.silver-theme .brand-text h1,
+        body.silver-theme .gold-text {
+            background: linear-gradient(135deg, #f8e4a4, #e4bc6e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        body.silver-theme .hub-item {
+            background: rgba(30, 28, 24, 0.7);
+            border: 1px solid rgba(220, 190, 80, 0.7);
+            color: #ffefcf;
+        }
+
+        body.silver-theme .hub-item i {
+            color: #e7c56c;
+        }
+
+        body.silver-theme .hub-item:hover {
+            background: rgba(220, 190, 80, 0.25);
+            border-color: #f0d27a;
+        }
+
+        body.silver-theme .greeting h2 {
+            color: #f9e6b3;
+        }
+
+        body.silver-theme .enquiry-card {
+            background: rgba(18, 18, 22, 0.65);
+            border: 1px solid rgba(200, 175, 75, 0.8);
+        }
+
+        body.silver-theme .enquiry-title {
+            color: #f0da9c;
+        }
+
+        body.silver-theme .input-field {
+            background: rgba(20, 18, 20, 0.9);
+            border: 1px solid #c9ae62;
+            color: #fff2df;
+        }
+
+        body.silver-theme .input-field:focus {
+            border-color: #ebc97a;
+            box-shadow: 0 0 0 3px rgba(220, 180, 70, 0.3);
+        }
+
+        body.silver-theme .enquiry-btn {
+            background: linear-gradient(105deg, #dab85c, #c9a548);
+            color: #1a1508;
+            font-weight: 800;
+        }
+
+        body.silver-theme .footer-note {
+            color: #e7d3a2;
+        }
+
+        body.silver-theme .theme-toggle {
+            background: rgba(30, 30, 35, 0.6);
+            border: 1px solid #e1c46a;
+        }
+
+        body.silver-theme .theme-toggle i {
+            color: #f3de9b;
+        }
+
+        body.silver-theme .toast-msg {
+            background: #23201ad9;
+            color: #fff0cc;
+            border-left: 5px solid #e7c362;
+        }
+
+        /* MAIN CARD STYLES (shared) */
+        .glass-card {
+            max-width: 620px;
+            width: 100%;
+            border-radius: 2.8rem;
+            padding: 2rem 1.8rem 2rem;
+            transition: all 0.35s ease;
+            animation: floatIn 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        @keyframes floatIn {
+            0% {
+                opacity: 0;
+                transform: translateY(25px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        /* Company logo styling - NORMAL USERS CANNOT UPLOAD, only view */
+        .company-logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            padding: 4px;
+        }
+        
+        /* No cursor pointer for regular users - logo is NOT clickable for visitors */
+        .company-logo-img {
+            max-height: 58px;
+            width: auto;
+            border-radius: 14px;
+            object-fit: contain;
+            transition: all 0.2s;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+            display: block;
+            pointer-events: none; /* Prevents any click interaction for visitors */
+        }
+        
+        /* Admin edit hint - hidden by default, shows only when admin triggers via secret combo */
+        .admin-edit-hint {
+            position: absolute;
+            bottom: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(212, 175, 55, 0.9);
+            color: #1f1a0a;
+            font-size: 0.65rem;
+            padding: 3px 12px;
+            border-radius: 40px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            font-weight: 700;
+            backdrop-filter: blur(4px);
+            z-index: 10;
+            font-family: monospace;
+        }
+        
+        /* Admin mode active - shows edit hint */
+        body.admin-mode .company-logo {
+            cursor: pointer;
+        }
+        body.admin-mode .company-logo-img {
+            pointer-events: auto;
+            cursor: pointer;
+        }
+        body.admin-mode .admin-edit-hint {
+            opacity: 1;
+        }
+
+        .brand-text h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+        }
+
+        .brand-text p {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            font-weight: 500;
+            color: #e2cd93;
+        }
+
+        body.silver-theme .brand-text p {
+            color: #cdbc83;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            backdrop-filter: blur(6px);
+            border-radius: 60px;
+            padding: 0.55rem 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.02);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-toggle i {
+            font-size: 1.3rem;
+            transition: all 0.2s;
+        }
+
+        .greeting {
+            margin: 0.5rem 0 1.6rem 0;
+            text-align: center;
+        }
+
+        .greeting h2 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #f6e2a5, #e9c468);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+            margin: 1.8rem 0 2rem;
+        }
+
+        .hub-item {
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+            padding: 0.9rem 0.4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .hub-item i {
+            font-size: 2.1rem;
+            transition: transform 0.2s;
+        }
+
+        .hub-item span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+        }
+
+        .hub-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 22px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hub-item:hover i {
+            transform: scale(1.05);
+        }
+
+        .enquiry-card {
+            margin: 1rem 0 0.5rem;
+            border-radius: 2rem;
+            padding: 1.2rem 1.2rem 1.5rem;
+            transition: all 0.25s;
+        }
+
+        .enquiry-title {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .enquiry-title i {
+            font-size: 1.5rem;
+        }
+
+        .form-row {
+            margin-bottom: 1rem;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.85rem 1.1rem;
+            border-radius: 1.6rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .enquiry-btn {
+            border: none;
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.2s;
+            margin-top: 0.3rem;
+        }
+
+        .enquiry-btn:hover {
+            transform: scale(0.98);
+            filter: brightness(1.03);
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.7rem;
+            margin-top: 1.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .rating-stars {
+            display: inline-flex;
+            gap: 4px;
+            color: #f5c542;
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            backdrop-filter: blur(12px);
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            pointer-events: none;
+            z-index: 999;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+
+        .toast-msg.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* hidden file input - only accessible in admin mode */
+        #logoFileUploader {
+            display: none;
+        }
+
+        /* Admin secret badge (subtle) */
+        .admin-badge {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 9px;
+            opacity: 0.2;
+            color: #c9a548;
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        @media (max-width: 520px) {
+            .glass-card {
+                padding: 1.5rem;
+            }
+            .hub-item span {
+                font-size: 0.7rem;
+            }
+            .greeting h2 {
+                font-size: 1.5rem;
+            }
+            .toast-msg {
+                white-space: normal;
+                text-align: center;
+                font-size: 0.75rem;
+                width: 80%;
+            }
+            .brand-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .company-logo-img {
+                max-height: 48px;
+            }
+        }
+    </style>
+</head>
+<body class="gold-theme">
+    <div class="glass-card">
+        <div class="brand-header">
+            <div class="logo-area">
+                <!-- Company Logo: visitors CANNOT upload, only view -->
+                <div class="company-logo" id="companyLogoContainer">
+                    <img id="companyLogoImage" class="company-logo-img" src="https://placehold.co/120x60/1a1408/e6b422?text=UZR+Logo" alt="Company Logo">
+                    <span class="admin-edit-hint"><i class="fas fa-lock"></i> Admin: Ctrl + Double-click to edit</span>
+                </div>
+                <div class="brand-text">
+                    <h1>UZR INDIA</h1>
+                    <p>✦ PRESTIGE AUTOMOTIVE ✦</p>
+                </div>
+            </div>
+            <div class="theme-toggle" id="luxuryToggle">
+                <i class="fas fa-sun" id="goldSunIcon"></i>
+                <i class="fas fa-moon" id="silverMoonIcon"></i>
+            </div>
+        </div>
+
+        <input type="file" id="logoFileUploader" accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp, image/gif">
+
+        <div class="greeting">
+            <h2>Let's get you <span class="gold-text">checked in</span></h2>
+            <div style="display: flex; justify-content: center; gap: 6px; margin-top: 6px;">
+                <span class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                <span style="font-size: 12px; margin-left: 6px; color: #e7cf92;">4.9 · elite service</span>
+            </div>
+        </div>
+
+        <div class="hub-grid">
+            <a href="https://www.uzr.co.in" target="_blank" rel="noopener noreferrer" class="hub-item" id="officialWeb">
+                <i class="fas fa-globe-asia"></i>
+                <span>OFFICIAL WEBSITE</span>
+            </a>
+            
+                 <a href="https://v0-qr-check-in-system.vercel.app/" target="_blank" class="hub-item" id="enquiryScrollBtn">
+                <i class="fas fa-building-user"></i>
+                <span>SHOWROOM ENQUIRY</span>
+                </a>
+           
+            <a href="https://g.page/r/Cf_zW51SpdsVEBM/review" target="_blank" class="hub-item" id="googleReviewHub">
+                <i class="fab fa-google"></i>
+                <span>GOOGLE REVIEW</span>
+            </a>
+            <a href="https://www.instagram.com/uzrindia/" target="_blank" class="hub-item">
+                <i class="fab fa-instagram"></i>
+                <span>INSTAGRAM</span>
+            </a>
+            <a href="https://www.facebook.com/uzrindia/" target="_blank" class="hub-item">
+                <i class="fab fa-facebook-f"></i>
+                <span>FACEBOOK</span>
+            </a>
+            <a href="https://www.youtube.com/@uzrindia" target="_blank" class="hub-item">
+                <i class="fab fa-youtube"></i>
+                <span>YOUTUBE</span>
+            </a>
+        </div>
+
+       
+        <div class="footer-note">
+            <i class="fas fa-qrcode"></i> ONE QR • ALL ACCESS | GOLD · SILVER EDITION
+        </div>
+    </div>
+    <div class="admin-badge">UZR • secure</div>
+    <div id="toastMsg" class="toast-msg">✨</div>
+
+    <script>
+        // ========== ADMIN-ONLY LOGO UPLOAD ==========
+        // Regular visitors CANNOT change logo.
+        // Admin must press and hold Ctrl key + Double-click on logo to enter admin mode and upload.
+        
+        const logoContainer = document.getElementById('companyLogoContainer');
+        const logoImg = document.getElementById('companyLogoImage');
+        const fileInput = document.getElementById('logoFileUploader');
+        let adminModeActive = false;
+        
+        function showToastMessage(msg, duration = 2100) {
+            const toast = document.getElementById('toastMsg');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), duration);
+        }
+        
+        // Load saved logo from localStorage
+        function loadSavedLogo() {
+            const savedLogo = localStorage.getItem('uzr_company_logo_custom');
+            if (savedLogo && savedLogo !== '') {
+                logoImg.src = savedLogo;
+            }
+        }
+        
+        // Save logo (only called when admin uploads)
+        function saveLogoToStorage(imageDataUrl) {
+            localStorage.setItem('uzr_company_logo_custom', imageDataUrl);
+        }
+        
+        // Handle file upload (admin only)
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            if (!file.type.match('image.*')) {
+                showToastMessage("⚠️ Please select a valid image file", 1800);
+                return;
+            }
+            
+            if (file.size > 2 * 1024 * 1024) {
+                showToastMessage("📸 Image too large (max 2MB)", 1600);
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageUrl = e.target.result;
+                logoImg.src = imageUrl;
+                saveLogoToStorage(imageUrl);
+                showToastMessage("✓ Company logo updated successfully!", 1800);
+                // Exit admin mode after upload
+                exitAdminMode();
+            };
+            reader.onerror = function() {
+                showToastMessage("❌ Error uploading image", 1500);
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        // Enter admin mode (shows edit hint, enables click-to-upload)
+        function enterAdminMode() {
+            if (adminModeActive) return;
+            adminModeActive = true;
+            document.body.classList.add('admin-mode');
+            showToastMessage("🔐 Admin mode: Click logo to change image", 2500);
+            
+            // Add click listener for logo upload (only in admin mode)
+            logoContainer.style.cursor = 'pointer';
+            logoContainer.addEventListener('click', adminClickHandler);
+        }
+        
+        function exitAdminMode() {
+            if (!adminModeActive) return;
+            adminModeActive = false;
+            document.body.classList.remove('admin-mode');
+            logoContainer.style.cursor = '';
+            logoContainer.removeEventListener('click', adminClickHandler);
+            showToastMessage("🔒 Admin mode exited", 1500);
+        }
+        
+        function adminClickHandler(e) {
+            e.stopPropagation();
+            fileInput.click();
+        }
+        
+        // Secret combo: Ctrl + Double-click on logo to enter admin mode
+        logoContainer.addEventListener('dblclick', (e) => {
+            if (e.ctrlKey) {
+                e.preventDefault();
+                if (adminModeActive) {
+                    exitAdminMode();
+                } else {
+                    enterAdminMode();
+                }
+            }
+        });
+        
+        // File input change handler
+        fileInput.addEventListener('change', handleLogoUpload);
+        
+        // Click outside? stay secure - logo does nothing for normal users
+        // Load existing logo on startup
+        loadSavedLogo();
+        
+        // ========== THEME TOGGLE ==========
+        const bodyEl = document.body;
+        const toggleBtn = document.getElementById('luxuryToggle');
+        const goldSun = document.getElementById('goldSunIcon');
+        const silverMoon = document.getElementById('silverMoonIcon');
+
+        const storedTheme = localStorage.getItem('uzrGoldSilverTheme');
+        if (storedTheme === 'silver') {
+            bodyEl.classList.remove('gold-theme');
+            bodyEl.classList.add('silver-theme');
+            updateToggleIcons(true);
+        } else {
+            bodyEl.classList.remove('silver-theme');
+            bodyEl.classList.add('gold-theme');
+            updateToggleIcons(false);
+        }
+
+        function updateToggleIcons(isSilver) {
+            if (isSilver) {
+                goldSun.style.opacity = '0.55';
+                goldSun.style.transform = 'scale(0.9)';
+                silverMoon.style.opacity = '1';
+                silverMoon.style.transform = 'scale(1.2)';
+            } else {
+                goldSun.style.opacity = '1';
+                goldSun.style.transform = 'scale(1.2)';
+                silverMoon.style.opacity = '0.55';
+                silverMoon.style.transform = 'scale(0.9)';
+            }
+        }
+
+        function setTheme(themeMode) {
+            if (themeMode === 'silver') {
+                bodyEl.classList.remove('gold-theme');
+                bodyEl.classList.add('silver-theme');
+                localStorage.setItem('uzrGoldSilverTheme', 'silver');
+                updateToggleIcons(true);
+                showToastMessage("✨ Silver Radiance", 1300);
+            } else {
+                bodyEl.classList.remove('silver-theme');
+                bodyEl.classList.add('gold-theme');
+                localStorage.setItem('uzrGoldSilverTheme', 'gold');
+                updateToggleIcons(false);
+                showToastMessage("🏆 Gold Prestige", 1300);
+            }
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            const isSilver = bodyEl.classList.contains('silver-theme');
+            if (isSilver) setTheme('gold');
+            else setTheme('silver');
+        });
+
+        // Scroll to enquiry
+        document.getElementById('enquiryScrollBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('showroomEnquiryForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            document.getElementById('fullName').focus();
+            showToastMessage("📋 Fill showroom enquiry", 1300);
+        });
+
+        // Google review
+        document.getElementById('googleReviewHub').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://g.page/r/Cf_zW51SpdsVEBM/review', '_blank');
+            showToastMessage("🌟 Leave a 5-star review", 1600);
+        });
+
+        // Social toasts
+        document.querySelectorAll('.hub-item[href*="instagram"], .hub-item[href*="facebook"], .hub-item[href*="youtube"]').forEach(link => {
+            link.addEventListener('click', () => {
+                const text = link.innerText.trim();
+                if (text.includes("INSTAGRAM")) showToastMessage("📸 Follow @uzr.india", 1000);
+                else if (text.includes("FACEBOOK")) showToastMessage("👍 Join UZR Community", 1000);
+                else if (text.includes("YOUTUBE")) showToastMessage("🎬 Watch showcases", 1000);
+            });
+        });
+
+        // Form submit
+        document.getElementById('enquiryForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phoneNumber').value.trim();
+            if (!name || !phone) {
+                showToastMessage("⚠️ Please enter name & phone", 1600);
+                return;
+            }
+            showToastMessage(`✨ Thank you ${name}! Concierge will reach out. ✨`, 2500);
+        });
+
+        // External links
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            link.setAttribute('rel', 'noopener noreferrer');
+            link.setAttribute('target', '_blank');
+        });
+
+        window.addEventListener('load', () => {
+            showToastMessage("⚡ Logo is view-only for visitors", 2200);
+        });
+    </script>
+</body>
+</html>

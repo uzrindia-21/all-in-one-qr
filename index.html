@@ -393,60 +393,6 @@
             transform: scale(1.05);
         }
 
-        .enquiry-card {
-            margin: 1rem 0 0.5rem;
-            border-radius: 2rem;
-            padding: 1.2rem 1.2rem 1.5rem;
-            transition: all 0.25s;
-        }
-
-        .enquiry-title {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            margin-bottom: 1.2rem;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .enquiry-title i {
-            font-size: 1.5rem;
-        }
-
-        .form-row {
-            margin-bottom: 1rem;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 0.85rem 1.1rem;
-            border-radius: 1.6rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            transition: all 0.2s;
-            outline: none;
-        }
-
-        .enquiry-btn {
-            border: none;
-            width: 100%;
-            padding: 0.85rem;
-            border-radius: 2rem;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: 0.2s;
-            margin-top: 0.3rem;
-        }
-
-        .enquiry-btn:hover {
-            transform: scale(0.98);
-            filter: brightness(1.03);
-        }
-
         .footer-note {
             text-align: center;
             font-size: 0.7rem;
@@ -532,8 +478,7 @@
             <div class="logo-area">
                 <!-- Company Logo: visitors CANNOT upload, only view -->
                 <div class="company-logo" id="companyLogoContainer">
-                    <!-- Change this line in the HTML -->
-<img id="companyLogoImage" class="company-logo-img" src="logo.png" alt="Company Logo">
+                    <img id="companyLogoImage" class="company-logo-img" src="logo.png" alt="Company Logo">
                     <span class="admin-edit-hint"><i class="fas fa-lock"></i> Admin: Ctrl + Double-click to edit</span>
                 </div>
                 <div class="brand-text">
@@ -563,10 +508,11 @@
                 <span>OFFICIAL WEBSITE</span>
             </a>
             
-                 <a href="https://v0-qr-check-in-system.vercel.app/" target="_blank" class="hub-item" id="enquiryScrollBtn">
+            <!-- SHOWROOM ENQUIRY - Navigates to the specified URL -->
+            <a href="https://v0-qr-check-in-system.vercel.app" target="_blank" rel="noopener noreferrer" class="hub-item" id="enquiryScrollBtn">
                 <i class="fas fa-building-user"></i>
                 <span>SHOWROOM ENQUIRY</span>
-                </a>
+            </a>
            
             <a href="https://g.page/r/Cf_zW51SpdsVEBM/review" target="_blank" class="hub-item" id="googleReviewHub">
                 <i class="fab fa-google"></i>
@@ -586,7 +532,6 @@
             </a>
         </div>
 
-       
         <div class="footer-note">
             <i class="fas fa-qrcode"></i> ONE QR • ALL ACCESS | GOLD · SILVER EDITION
         </div>
@@ -752,14 +697,6 @@
             else setTheme('silver');
         });
 
-        // Scroll to enquiry
-        document.getElementById('enquiryScrollBtn').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('showroomEnquiryForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            document.getElementById('fullName').focus();
-            showToastMessage("📋 Fill showroom enquiry", 1300);
-        });
-
         // Google review
         document.getElementById('googleReviewHub').addEventListener('click', (e) => {
             e.preventDefault();
@@ -775,18 +712,6 @@
                 else if (text.includes("FACEBOOK")) showToastMessage("👍 Join UZR Community", 1000);
                 else if (text.includes("YOUTUBE")) showToastMessage("🎬 Watch showcases", 1000);
             });
-        });
-
-        // Form submit
-        document.getElementById('enquiryForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('fullName').value.trim();
-            const phone = document.getElementById('phoneNumber').value.trim();
-            if (!name || !phone) {
-                showToastMessage("⚠️ Please enter name & phone", 1600);
-                return;
-            }
-            showToastMessage(`✨ Thank you ${name}! Concierge will reach out. ✨`, 2500);
         });
 
         // External links

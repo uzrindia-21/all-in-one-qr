@@ -25,25 +25,37 @@
             transition: background 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1), color 0.3s;
         }
 
-        /* ----- GOLD THEME (DEFAULT): background pure gold, text black-ish on dark card ----- */
+        /* ----- GOLD THEME (DEFAULT): background pure gold ----- */
         body.gold-theme {
             background: radial-gradient(circle at 30% 20%, #e6b422, #c9961e);
             background-attachment: fixed;
         }
 
         body.gold-theme .glass-card {
-            background: rgba(0, 0, 0, 0.78);
+            background: rgba(0, 0, 0, 0.82); /* Dark background for better contrast */
             backdrop-filter: blur(16px);
-            border: 2px solid rgba(255, 215, 0, 0.7);
-            box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 210, 90, 0.5);
+            border: 2px solid rgba(212, 175, 55, 0.7);
+            box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.3);
         }
 
-        body.gold-theme .brand-text h1,
-        body.gold-theme .gold-text {
+        body.gold-theme .brand-text h1 {
             background: linear-gradient(135deg, #ffeaac, #f5bc3c);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            font-weight: 800;
+        }
+        
+        body.gold-theme .brand-text p {
+            color: #e2cd93;
+        }
+
+        body.gold-theme .gold-text {
+            background: linear-gradient(135deg, #f6e2a5, #e9c468);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
         }
 
         body.gold-theme .hub-item {
@@ -63,32 +75,6 @@
 
         body.gold-theme .greeting h2 {
             color: #ffefbf;
-        }
-
-        body.gold-theme .enquiry-card {
-            background: rgba(0, 0, 0, 0.55);
-            border: 1px solid rgba(255, 200, 70, 0.6);
-        }
-
-        body.gold-theme .enquiry-title {
-            color: #ffdfa5;
-        }
-
-        body.gold-theme .input-field {
-            background: rgba(25, 22, 18, 0.9);
-            border: 1px solid #bd9a3e;
-            color: #fcf3df;
-        }
-
-        body.gold-theme .input-field:focus {
-            border-color: #ffcf6e;
-            box-shadow: 0 0 0 3px rgba(255, 200, 70, 0.3);
-        }
-
-        body.gold-theme .enquiry-btn {
-            background: linear-gradient(105deg, #e6b422, #d9a416);
-            color: #1f1a0a;
-            font-weight: 800;
         }
 
         body.gold-theme .footer-note {
@@ -115,21 +101,39 @@
             background: rgba(0,0,0,0.2);
             border-radius: 16px;
         }
+        
+        body.gold-theme .rating-stars {
+            color: #f5c542;
+        }
+        
+        body.gold-theme .rating-text {
+            color: #e7cf92;
+        }
 
-        /* ----- SILVER THEME: background silver/chrome, text golden ----- */
+        /* ----- SILVER THEME: background silver/chrome ----- */
         body.silver-theme {
             background: radial-gradient(circle at 70% 30%, #d9e2ec, #bdc4d0);
             background-attachment: fixed;
         }
 
         body.silver-theme .glass-card {
-            background: rgba(20, 20, 25, 0.85);
+            background: rgba(0, 0, 0, 0.75); /* Dark background for contrast in silver mode too */
             backdrop-filter: blur(16px);
             border: 2px solid rgba(210, 190, 100, 0.85);
-            box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(200, 180, 90, 0.5);
+            box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(200, 180, 90, 0.3);
         }
 
-        body.silver-theme .brand-text h1,
+        body.silver-theme .brand-text h1 {
+            background: linear-gradient(135deg, #f8e4a4, #e4bc6e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        body.silver-theme .brand-text p {
+            color: #cdbc83;
+        }
+
         body.silver-theme .gold-text {
             background: linear-gradient(135deg, #f8e4a4, #e4bc6e);
             -webkit-background-clip: text;
@@ -156,32 +160,6 @@
             color: #f9e6b3;
         }
 
-        body.silver-theme .enquiry-card {
-            background: rgba(18, 18, 22, 0.65);
-            border: 1px solid rgba(200, 175, 75, 0.8);
-        }
-
-        body.silver-theme .enquiry-title {
-            color: #f0da9c;
-        }
-
-        body.silver-theme .input-field {
-            background: rgba(20, 18, 20, 0.9);
-            border: 1px solid #c9ae62;
-            color: #fff2df;
-        }
-
-        body.silver-theme .input-field:focus {
-            border-color: #ebc97a;
-            box-shadow: 0 0 0 3px rgba(220, 180, 70, 0.3);
-        }
-
-        body.silver-theme .enquiry-btn {
-            background: linear-gradient(105deg, #dab85c, #c9a548);
-            color: #1a1508;
-            font-weight: 800;
-        }
-
         body.silver-theme .footer-note {
             color: #e7d3a2;
         }
@@ -199,6 +177,14 @@
             background: #23201ad9;
             color: #fff0cc;
             border-left: 5px solid #e7c362;
+        }
+        
+        body.silver-theme .rating-stars {
+            color: #e7c56c;
+        }
+        
+        body.silver-theme .rating-text {
+            color: #d4bc7a;
         }
 
         /* MAIN CARD STYLES (shared) */
@@ -238,7 +224,7 @@
             flex-wrap: wrap;
         }
 
-        /* Company logo styling - NORMAL USERS CANNOT UPLOAD, only view */
+        /* Company logo styling */
         .company-logo {
             position: relative;
             display: flex;
@@ -248,7 +234,6 @@
             padding: 4px;
         }
         
-        /* No cursor pointer for regular users - logo is NOT clickable for visitors */
         .company-logo-img {
             max-height: 58px;
             width: auto;
@@ -257,10 +242,9 @@
             transition: all 0.2s;
             filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
             display: block;
-            pointer-events: none; /* Prevents any click interaction for visitors */
+            pointer-events: none;
         }
         
-        /* Admin edit hint - hidden by default, shows only when admin triggers via secret combo */
         .admin-edit-hint {
             position: absolute;
             bottom: -28px;
@@ -281,7 +265,6 @@
             font-family: monospace;
         }
         
-        /* Admin mode active - shows edit hint */
         body.admin-mode .company-logo {
             cursor: pointer;
         }
@@ -303,11 +286,6 @@
             font-size: 0.7rem;
             letter-spacing: 1px;
             font-weight: 500;
-            color: #e2cd93;
-        }
-
-        body.silver-theme .brand-text p {
-            color: #cdbc83;
         }
 
         /* Theme Toggle */
@@ -343,12 +321,8 @@
             letter-spacing: -0.3px;
         }
 
-        .gold-text {
-            background: linear-gradient(135deg, #f6e2a5, #e9c468);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 700;
+        .white-text {
+            color: #ffffff;
         }
 
         .hub-grid {
@@ -403,7 +377,6 @@
         .rating-stars {
             display: inline-flex;
             gap: 4px;
-            color: #f5c542;
         }
 
         .toast-msg {
@@ -429,12 +402,10 @@
             transform: translateX(-50%) scale(1);
         }
 
-        /* hidden file input - only accessible in admin mode */
         #logoFileUploader {
             display: none;
         }
 
-        /* Admin secret badge (subtle) */
         .admin-badge {
             position: fixed;
             bottom: 10px;
@@ -476,7 +447,6 @@
     <div class="glass-card">
         <div class="brand-header">
             <div class="logo-area">
-                <!-- Company Logo: visitors CANNOT upload, only view -->
                 <div class="company-logo" id="companyLogoContainer">
                     <img id="companyLogoImage" class="company-logo-img" src="logo.png" alt="Company Logo">
                     <span class="admin-edit-hint"><i class="fas fa-lock"></i> Admin: Ctrl + Double-click to edit</span>
@@ -495,10 +465,10 @@
         <input type="file" id="logoFileUploader" accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp, image/gif">
 
         <div class="greeting">
-            <h2>Let's get you <span class="gold-text">checked in</span></h2>
+             <h2>Let's get you <span class="white-text">checked in</span></h2>
             <div style="display: flex; justify-content: center; gap: 6px; margin-top: 6px;">
                 <span class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                <span style="font-size: 12px; margin-left: 6px; color: #e7cf92;">4.9 · elite service</span>
+                <span class="rating-text" style="font-size: 12px; margin-left: 6px;">4.9 · elite service</span>
             </div>
         </div>
 
@@ -508,9 +478,8 @@
                 <span>OFFICIAL WEBSITE</span>
             </a>
             
-            <!-- SHOWROOM ENQUIRY - Navigates to the specified URL -->
             <a href="https://v0-qr-check-in-system.vercel.app" target="_blank" rel="noopener noreferrer" class="hub-item" id="enquiryScrollBtn">
-                <i class="fas fa-building-user"></i>
+                <i class="fas fa-store"></i>
                 <span>SHOWROOM ENQUIRY</span>
             </a>
            
@@ -540,10 +509,6 @@
     <div id="toastMsg" class="toast-msg">✨</div>
 
     <script>
-        // ========== ADMIN-ONLY LOGO UPLOAD ==========
-        // Regular visitors CANNOT change logo.
-        // Admin must press and hold Ctrl key + Double-click on logo to enter admin mode and upload.
-        
         const logoContainer = document.getElementById('companyLogoContainer');
         const logoImg = document.getElementById('companyLogoImage');
         const fileInput = document.getElementById('logoFileUploader');
@@ -556,7 +521,6 @@
             setTimeout(() => toast.classList.remove('show'), duration);
         }
         
-        // Load saved logo from localStorage
         function loadSavedLogo() {
             const savedLogo = localStorage.getItem('uzr_company_logo_custom');
             if (savedLogo && savedLogo !== '') {
@@ -564,12 +528,10 @@
             }
         }
         
-        // Save logo (only called when admin uploads)
         function saveLogoToStorage(imageDataUrl) {
             localStorage.setItem('uzr_company_logo_custom', imageDataUrl);
         }
         
-        // Handle file upload (admin only)
         function handleLogoUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -590,7 +552,6 @@
                 logoImg.src = imageUrl;
                 saveLogoToStorage(imageUrl);
                 showToastMessage("✓ Company logo updated successfully!", 1800);
-                // Exit admin mode after upload
                 exitAdminMode();
             };
             reader.onerror = function() {
@@ -599,14 +560,11 @@
             reader.readAsDataURL(file);
         }
         
-        // Enter admin mode (shows edit hint, enables click-to-upload)
         function enterAdminMode() {
             if (adminModeActive) return;
             adminModeActive = true;
             document.body.classList.add('admin-mode');
             showToastMessage("🔐 Admin mode: Click logo to change image", 2500);
-            
-            // Add click listener for logo upload (only in admin mode)
             logoContainer.style.cursor = 'pointer';
             logoContainer.addEventListener('click', adminClickHandler);
         }
@@ -625,7 +583,6 @@
             fileInput.click();
         }
         
-        // Secret combo: Ctrl + Double-click on logo to enter admin mode
         logoContainer.addEventListener('dblclick', (e) => {
             if (e.ctrlKey) {
                 e.preventDefault();
@@ -637,14 +594,9 @@
             }
         });
         
-        // File input change handler
         fileInput.addEventListener('change', handleLogoUpload);
-        
-        // Click outside? stay secure - logo does nothing for normal users
-        // Load existing logo on startup
         loadSavedLogo();
         
-        // ========== THEME TOGGLE ==========
         const bodyEl = document.body;
         const toggleBtn = document.getElementById('luxuryToggle');
         const goldSun = document.getElementById('goldSunIcon');
@@ -697,14 +649,12 @@
             else setTheme('silver');
         });
 
-        // Google review
         document.getElementById('googleReviewHub').addEventListener('click', (e) => {
             e.preventDefault();
             window.open('https://g.page/r/Cf_zW51SpdsVEBM/review', '_blank');
             showToastMessage("🌟 Leave a 5-star review", 1600);
         });
 
-        // Social toasts
         document.querySelectorAll('.hub-item[href*="instagram"], .hub-item[href*="facebook"], .hub-item[href*="youtube"]').forEach(link => {
             link.addEventListener('click', () => {
                 const text = link.innerText.trim();
@@ -714,7 +664,6 @@
             });
         });
 
-        // External links
         document.querySelectorAll('a[href^="http"]').forEach(link => {
             link.setAttribute('rel', 'noopener noreferrer');
             link.setAttribute('target', '_blank');
